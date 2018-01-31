@@ -1,14 +1,9 @@
 import config
 import mysql.connector as mariadb
 
-db_host = config.mariadb_host
-db_port = config.mariadb_port
-db_database = config.mariadb_database
-db_user = config.mariadb_username
-db_pw = config.mariadb_pw
+db_config = config.db_config
 
-
-db_connection = mariadb.connect(user=db_user, password=db_pw, host=db_host, database=db_database, port=db_port)
+db_connection = mariadb.connect(**db_config)
 cursor = db_connection.cursor()
 
 

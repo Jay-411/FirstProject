@@ -6,6 +6,7 @@ dbc.connect()
 dbc.test()
 dbc.close()
 
+#alternative
 with DB.Database() as dbc:
     dbc.connect()
     dbc.test()

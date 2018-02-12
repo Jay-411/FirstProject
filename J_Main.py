@@ -10,8 +10,7 @@ with db.Database() as dbc:
 import requests
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
-anzErg = "2"
-base_url = "http://www.adultfilmdatabase.com/browse.cfm?type=actor&page=1&dsp=" + anzErg + "&sb=name&gf=&if=&dspas=list"
+base_url = "https://www.freeones.com/html/index_prof.shtml?text=1"
 
 # open url
 r = requests.get(base_url)
@@ -21,7 +20,7 @@ doc = BeautifulSoup(r.text,"html.parser")
 pstar_liste = []
 
 # save pstar with link in list
-for a in doc.select(".w3-table")[0].select("a"):
+for a in doc.select(".BI3col")[0].select("a"):
     pstar_name = a.attrs["title"]
     pstar_link = a.attrs["href"]
     pstar_liste.append([pstar_name,pstar_link])
@@ -40,7 +39,6 @@ for pstar in pstar_liste:
             print("\n")
             print(part.next(1))
             #print("\n\n")
-
 
     #break;
 
